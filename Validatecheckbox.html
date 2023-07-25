@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <script>
+            var str=""
+            function showskills()
+            {
+                alert("InshowSkills");
+                str=""
+                var arr=document.getElementsByName("skill");
+                var cnt=0;
+                for(var i=0 ; i<arr.length ; i++ )
+                {
+                    if(arr[i].checked){
+                        alert("InForloop");
+                        str +=arr[i].value + ","
+                        cnt++;
+                    }
+                }
+                if(cnt>=3)
+                {
+                    alert("Intruecondition");
+                    document.getElementById("errskill").innerHTML=""
+                    document.getElementById("mydiv").innerHTML=str;
+                    return true;
+                }
+                else{
+                    alert("infalsecondition");
+                    document.getElementById("errskill").innerHTML="please select min 3";
+                    return false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <input type="checkbox" id="java" name="skill" value="java"><label for="java">JAVA</label>
+        <input type="checkbox" id="C#" name="skill" value="C#" ><label for="C#">C#</label>
+        <input type="checkbox" id="shellScript" name="skill" value="ShellScript"><label for="ShellScript">SHELLSCRIPT</label>
+        <input type="checkbox" id="Dotnet" name="skill" value="dotnet" ><label for="Dotnet">DOTNET</label>
+        <input type="checkbox" id="Database" name="skill" value="database"><label for="Database">DATABASE</label><span id="errskill"></span>
+        <br>
+        <button type="submit" id="btn" value="btn" class="btn" onclick="showskills()" >Show Skills</button>
+        <div id="mydiv"></div>
+    </body>
+</html>

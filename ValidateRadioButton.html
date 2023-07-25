@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <script>
+            var nm;
+            var data;
+            function validateName()
+            {
+                alert("in validateName")
+                nm = document.getElementById("nm").value;
+                if(nm==="" || (nm.trim().length ===0 ))
+                {
+                    document.getElementById("nm").innerHTML="name cannot be blank or empty"
+                    return false;
+                }
+                document.getElementById("nm").innerHTML="";
+                alert("in validateNameA")
+                return true;
+            }
+            function validatedegree()
+            {
+                alert("in validatedegree")
+                var arr=document.getElementsByName("degree")
+                for(var i=0 ; i<arr.length ; i++)
+                {
+                    if(arr[i].checked)
+                    {
+                        data=arr[i].value;
+                        document.getElementById("err1").innerHTML=""
+                        return true;
+                    }
+                }
+                document.getElementById("err1").innerHTML="please select one degree"
+                alert("in validatedegreeB")
+                return false;
+            }
+            function showdata(){
+                var flag1=validatedegree();
+                var flag2=validateName();
+                alert("in showdata")
+                if(flag1 && flag2)
+                {
+                   var str="Name" + name + "Degree" + degree;
+                   document.getElementById("mydiv").innerHTML=str; 
+                   return true;
+                }
+                return false;
+
+            }
+        </script>
+    </head>
+    <body>
+        <lable for="nm">Name</lable><input type="text" name="nm" id="nm" > <span id="err" name="err"></span> <br>
+
+        <input type="radio" name="degree" id="BE"> BE
+        <input type="radio" name="degree" id="MTECH">MTECH
+        <input type="radio" name="degree" id="Me">ME    
+        <input type="radio" name="degree" id="dac">DAC <span id="err1" name="err1"></span> <br>
+        <button type="submit" id="btn" class="btn" onclick="showdata()">ShowData</button>
+
+    </body>
+</html>

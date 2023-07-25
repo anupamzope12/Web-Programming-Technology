@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <style>
+            span{
+                color: red;
+            }
+        </style>
+        <script>
+
+            function validatenumber(number)
+            {
+                alert("in validatenumber funtion");
+                var a=document.getElementById(number).value;
+                alert("254")
+                if(a==="" || isNaN(a)){
+                    return false;
+                }
+                return true;
+            }
+            function validatedata(){
+                alert("in validatedata function")
+                var flag1=validatenumber("num1");
+                var flag2=validatenumber("num2");
+                if(flag1 && flag2)
+                {
+                    alert("datavalidate")
+                    addnumber();
+                }
+               else{
+                return false;
+               }
+               function addnumber()
+                {
+                alert("in addnumber function");
+                var q=parseInt(document.getElementById("num1").value);
+                var r=parseInt(document.getElementById("num2").value);
+
+                var ans=q + r;
+                document.getElementById("mydiv").innerHTML="Addition : " + ans;
+                document.getElementById("add").value=ans;
+                console.log("addtion = " + ans);
+            }
+        }    
+        </script>
+    </head>
+        <body>
+        <form name="frm">
+        Number1 : <input type="text" id="num1" name="num1"><br> <span id="err2">*</span>
+        Number2 : <input type="text" id="num2" name="num2"><br><span id="err2">*</span>
+        Result : <input type="text" id="add" name="add" disabled><br>
+        <button type="submit" id="btn" class="btn" name="btn" onclick="validatedata()">Addtion</button>
+        </form>
+        <div id="mydiv"></div>
+    </body>
+</html>
